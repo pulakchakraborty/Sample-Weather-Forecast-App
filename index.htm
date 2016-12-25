@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myWeatherForecastApp">
+    <head>
+        <title>AngularJS Weather Forecast Application</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            html, body, input, select, textarea
+        </style>
+        
+        <!-- load angular via CDN -->
+        <script src="//code.angularjs.org/1.6.0-rc.2/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.6.0-rc.2/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.6.0-rc.2/angular-resource.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Weather Forecast APP</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#!"><i class="fa fa-home"></i>Home</a></li>
+                    <li><a href="#!/forecast"><i></i>Forecast</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+            
+            <div ng-view></div>
+
+		</div>
+
+    </body>
+</html>
