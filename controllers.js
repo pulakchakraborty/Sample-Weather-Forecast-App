@@ -1,9 +1,15 @@
 //controllers
-myWeatherForecastApp.controller('homeController', ['$scope', '$log', 'cityService', function ($scope, $log, cityService) {
+myWeatherForecastApp.controller('homeController', ['$scope', '$location', '$log', 'cityService', function ($scope, $location, $log, cityService) {
     $scope.cityName = cityService.cityName;
+    
     $scope.$watch('cityName', function () {
         cityService.cityName = $scope.cityName;
     });
+    
+    $scope.submit = function () {
+        $location.path("/forecast");
+    };
+    
     $log.log('In the home page');
 }]);
 
