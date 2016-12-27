@@ -41,7 +41,7 @@ myWeatherForecastApp.controller('forecastController', ['$scope', '$resource', '$
     $scope.cityName = cityService.cityName;
     
     //pass the date count through $routeParams
-    $scope.days = $routeParams.days || 3;
+    $scope.days = $routeParams.days || '1';
     
     $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", {callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
     
