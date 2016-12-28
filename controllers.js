@@ -13,15 +13,13 @@ myWeatherForecastApp.controller('homeController', ['$scope', '$location', '$log'
     $log.log('In the home page');
 }]);
 
-myWeatherForecastApp.controller('forecastController', ['$scope', '$resource', '$log', '$routeParams', 'cityService', function ($scope, $resource, $log, $routeParams, cityService) {
+myWeatherForecastApp.controller('forecastController', ['$scope', '$log', '$routeParams', 'cityService', 'weatherService', function ($scope, $log, $routeParams, cityService, weatherService) {
     $scope.cityName = cityService.cityName;
     
     //pass the date count through $routeParams
     $scope.days = $routeParams.days || '1';
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", {callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
-    
-    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.cityName, cnt: $scope.days, APPID: '7cc97faceed75bd9207b0632b15de297'});
+    $scope.weatherResult = weatherService.getWeatherInfo($scope.cityName, $scope.days);
     console.log($scope.weatherResult);
     
     //method to convert kelvin to celsius
